@@ -1,0 +1,54 @@
+{
+  "author": {
+    "name": "Hasan Karahan",
+    "email": "hkarahan@dizmo.com",
+    "url": "https://github.com/hsk81"
+  },
+  "contributors": [
+    {
+      "name": "Hasan Karahan",
+      "email": "hkarahan@dizmo.com",
+      "url": "https://github.com/hsk81"
+    }
+  ],
+  "dependencies": {},
+  "description": "I18n library",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.6",
+    "eslint": "^6.2.2",
+    "esm": "^3.2.25",
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1",
+    "source-map-loader": "^0.2.4",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "yargs": "^14.0.0"
+  },
+  "files": [
+    "dist/lib"
+  ],
+  "keywords": [
+    "library",
+    "module"
+  ],
+  "license": "ISC",
+  "main": "dist/lib/index.js",
+  "name": "@dizmo/i18n",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "build": "node ./cli/run-build.js",
+    "clean": "node ./cli/run-clean.js",
+    "cover": "node ./cli/run-test.js --cover",
+    "lint": "node ./cli/run-lint.js",
+    "prepack": "node ./cli/run-prepack.js",
+    "test": "node ./cli/run-test.js"
+  },
+  "version": "1.0.0"
+}
