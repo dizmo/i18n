@@ -12,10 +12,11 @@
     }
   ],
   "dependencies": {},
-  "description": "I18n library",
+  "description": "i18n module",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
+    "@babel/polyfill": "^7.6.0",
     "@babel/preset-env": "^7.5.5",
     "chai": "^4.2.0",
     "coveralls": "^3.0.6",
@@ -23,6 +24,7 @@
     "esm": "^3.2.25",
     "mocha": "^6.2.0",
     "nyc": "^14.1.1",
+    "sinon": "^7.5.0",
     "source-map-loader": "^0.2.4",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",

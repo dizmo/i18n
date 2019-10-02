@@ -4,7 +4,28 @@
 
 # @dizmo/i18n
 
-Library module.
+A module, which provides a function `i18n` to acquire the translator function `t`, which can be used to translate values from JSON files, which are fetched from a URL and are chosen based on the (current) language. By default these are set to work within the context of a [dizmo].
+
+The default location to fetch JSON files from is:
+
+```javascript
+url: (language) => {
+    return `/bundles/${bundle.identifier}` +
+           `/assets/locales/translation.${language}.json`;
+}
+```
+
+while the default language is the current language of the viewer:
+
+```javascript
+language: () => {
+    return viewer.getAttribute('settings/language');
+}
+```
+
+The translator function `t` takes a `key` string (plus an optional `separator`) and returns a *translated* value by performing a *deep* lookup from the JSON file for the current language. The separator can be string or a regular expression (with a default of `/\/|\./`, i.e. a forward slash *or* a period).
+
+[dizmo]: https://www.dizmo.com/developer/
 
 ## Usage
 
@@ -17,13 +38,64 @@ npm install @dizmo/i18n --save
 ### Require
 
 ```javascript
-const lib = require('@dizmo/i18n');
+const i18n = require('@dizmo/i18n');
 ```
 
 ### Examples
 
 ```javascript
-...
+i18n((error, t) => {
+    if (!error) {
+        const value_a = t('my/example/key/a');
+        const value_b = t('my.example.key.b');
+        const value_c = t('my:example:key:c', /:/);
+        const value_d = t('my|example|key|d', '|');
+    } else {
+        console.error(error);
+    }
+});
+```
+
+```javascript
+try {
+    const t = await i18n();
+    const value_a = t('my/example/key/a');
+} catch (error) {
+    console.error(error);
+}
+```
+
+```javascript
+i18n((error, t) => {
+    if (!error) {
+        const value_a = t('my/example/key/a');
+    } else {
+        console.error(error);
+    }
+}, {
+    url: (language) => {
+        return `http://domain.tld/translation.${language}.json`,
+    },
+    language: () => {
+        return 'en';
+    }
+});
+```
+
+```javascript
+try {
+    const t = await i18n(null, {
+        url: (language) => {
+            return `http://domain.tld/translation.${language}.json`,
+        },
+        language: () => {
+            return 'en';
+        }
+    });
+    const value_a = t('my/example/key/a');
+} catch (error) {
+    console.error(error);
+}
 ```
 
 ## Development
@@ -108,4 +180,4 @@ npm publish --access=public
 
 ## Copyright
 
- © 2019 [Hasan Karahan](https://github.com/hsk81)
+ © 2019 [dizmo AG](https://www.dizmo.com/), Switzerland
