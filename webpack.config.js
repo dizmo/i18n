@@ -7,5 +7,10 @@ module.exports = {
             use: ['source-map-loader'],
             enforce: 'pre'
         }]
+    },
+    output: {
+        libraryExport: 'default',
+        libraryTarget: 'var',
+        library: 'i18n'
     }
 };
