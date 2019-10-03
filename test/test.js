@@ -75,13 +75,32 @@ describe('i18n w/await', () => {
             const t = await i18n();
             expect(t).to.be.a('function');
         });
-        it('should translate ""', async () => {
+        it('should translate key of `null`', async () => {
+            const t = await i18n();
+            expect(t).to.be.a('function');
+            const value = t(null);
+            expect(value).to.equal(undefined);
+        });
+        it('should translate key of `undefined`', async () => {
+            const t = await i18n();
+            expect(t).to.be.a('function');
+            const value = t();
+            expect(value).to.deep.equal({
+                '#front': { greeting: 'Hello World!' }
+            });
+            expect(t(undefined)).to.deep.equal({
+                '#front': { greeting: 'Hello World!' }
+            });
+        });
+        it('should translate key of `(empty)`', async () => {
             const t = await i18n();
             expect(t).to.be.a('function');
             const value = t('');
-            expect(value).to.equal(undefined);
+            expect(value).to.deep.equal({
+                '#front': { greeting: 'Hello World!' }
+            });
         });
-        it('should translate "#front"', async () => {
+        it('should translate key of `#front`', async () => {
             const t = await i18n();
             expect(t).to.be.a('function');
             const value = t('#front');
@@ -89,31 +108,31 @@ describe('i18n w/await', () => {
                 greeting: 'Hello World!'
             });
         });
-        it('should translate "#front/greeting"', async () => {
+        it('should translate key of `#front/greeting`', async () => {
             const t = await i18n();
             expect(t).to.be.a('function');
             const value = t('#front/greeting');
             expect(value).to.equal('Hello World!');
         });
-        it('should translate "#front.greeting"', async () => {
+        it('should translate key of `#front.greeting`', async () => {
             const t = await i18n();
             expect(t).to.be.a('function');
             const value = t('#front.greeting');
             expect(value).to.equal('Hello World!');
         });
-        it('should translate "#front:greeting"', async () => {
+        it('should translate key of `#front:greeting`', async () => {
             const t = await i18n();
             expect(t).to.be.a('function');
             const value = t('#front:greeting', /:/);
             expect(value).to.equal('Hello World!');
         });
-        it('should translate "#front|greeting"', async () => {
+        it('should translate key of `#front|greeting`', async () => {
             const t = await i18n();
             expect(t).to.be.a('function');
             const value = t('#front|greeting', '|');
             expect(value).to.equal('Hello World!');
         });
-        it('should translate "#front/greeting/random"', async () => {
+        it('should translate key of `#front/greeting/random`', async () => {
             const t = await i18n();
             expect(t).to.be.a('function');
             const value = t('#front.greeting.random');

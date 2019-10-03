@@ -86,14 +86,15 @@ function i18n(callback) {
 
   var translator = function translator(json) {
     var cache = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    return function (key) {
+    return function () {
+      var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       var separator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : /\/|\./;
 
       if (_typeof(json) !== 'object' || !json) {
         return undefined;
       }
 
-      if (typeof key !== 'string' || !key) {
+      if (typeof key !== 'string') {
         return undefined;
       }
 
@@ -104,7 +105,7 @@ function i18n(callback) {
       var keys = key.split(separator),
           value = json;
 
-      while (keys.length > 0) {
+      while (key && keys.length > 0) {
         if (_typeof(value) !== 'object' || value === null) {
           break;
         }
@@ -112,7 +113,7 @@ function i18n(callback) {
         value = value[keys.shift()];
       }
 
-      if (keys.length > 0) {
+      if (key && keys.length > 0) {
         return cache[key] = undefined;
       }
 

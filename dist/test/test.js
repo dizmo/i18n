@@ -112,7 +112,7 @@ describe('i18n w/await', function () {
         }
       }, _callee);
     })));
-    it('should translate ""',
+    it('should translate key of `null`',
     /*#__PURE__*/
     _asyncToGenerator(
     /*#__PURE__*/
@@ -128,7 +128,7 @@ describe('i18n w/await', function () {
             case 2:
               t = _context2.sent;
               (0, _chai.expect)(t).to.be.a('function');
-              value = t('');
+              value = t(null);
               (0, _chai.expect)(value).to.equal(undefined);
 
             case 6:
@@ -138,7 +138,7 @@ describe('i18n w/await', function () {
         }
       }, _callee2);
     })));
-    it('should translate "#front"',
+    it('should translate key of `undefined`',
     /*#__PURE__*/
     _asyncToGenerator(
     /*#__PURE__*/
@@ -154,19 +154,26 @@ describe('i18n w/await', function () {
             case 2:
               t = _context3.sent;
               (0, _chai.expect)(t).to.be.a('function');
-              value = t('#front');
+              value = t();
               (0, _chai.expect)(value).to.deep.equal({
-                greeting: 'Hello World!'
+                '#front': {
+                  greeting: 'Hello World!'
+                }
+              });
+              (0, _chai.expect)(t(undefined)).to.deep.equal({
+                '#front': {
+                  greeting: 'Hello World!'
+                }
               });
 
-            case 6:
+            case 7:
             case "end":
               return _context3.stop();
           }
         }
       }, _callee3);
     })));
-    it('should translate "#front/greeting"',
+    it('should translate key of `(empty)`',
     /*#__PURE__*/
     _asyncToGenerator(
     /*#__PURE__*/
@@ -182,8 +189,12 @@ describe('i18n w/await', function () {
             case 2:
               t = _context4.sent;
               (0, _chai.expect)(t).to.be.a('function');
-              value = t('#front/greeting');
-              (0, _chai.expect)(value).to.equal('Hello World!');
+              value = t('');
+              (0, _chai.expect)(value).to.deep.equal({
+                '#front': {
+                  greeting: 'Hello World!'
+                }
+              });
 
             case 6:
             case "end":
@@ -192,7 +203,7 @@ describe('i18n w/await', function () {
         }
       }, _callee4);
     })));
-    it('should translate "#front.greeting"',
+    it('should translate key of `#front`',
     /*#__PURE__*/
     _asyncToGenerator(
     /*#__PURE__*/
@@ -208,8 +219,10 @@ describe('i18n w/await', function () {
             case 2:
               t = _context5.sent;
               (0, _chai.expect)(t).to.be.a('function');
-              value = t('#front.greeting');
-              (0, _chai.expect)(value).to.equal('Hello World!');
+              value = t('#front');
+              (0, _chai.expect)(value).to.deep.equal({
+                greeting: 'Hello World!'
+              });
 
             case 6:
             case "end":
@@ -218,7 +231,7 @@ describe('i18n w/await', function () {
         }
       }, _callee5);
     })));
-    it('should translate "#front:greeting"',
+    it('should translate key of `#front/greeting`',
     /*#__PURE__*/
     _asyncToGenerator(
     /*#__PURE__*/
@@ -234,7 +247,7 @@ describe('i18n w/await', function () {
             case 2:
               t = _context6.sent;
               (0, _chai.expect)(t).to.be.a('function');
-              value = t('#front:greeting', /:/);
+              value = t('#front/greeting');
               (0, _chai.expect)(value).to.equal('Hello World!');
 
             case 6:
@@ -244,7 +257,7 @@ describe('i18n w/await', function () {
         }
       }, _callee6);
     })));
-    it('should translate "#front|greeting"',
+    it('should translate key of `#front.greeting`',
     /*#__PURE__*/
     _asyncToGenerator(
     /*#__PURE__*/
@@ -260,7 +273,7 @@ describe('i18n w/await', function () {
             case 2:
               t = _context7.sent;
               (0, _chai.expect)(t).to.be.a('function');
-              value = t('#front|greeting', '|');
+              value = t('#front.greeting');
               (0, _chai.expect)(value).to.equal('Hello World!');
 
             case 6:
@@ -270,7 +283,7 @@ describe('i18n w/await', function () {
         }
       }, _callee7);
     })));
-    it('should translate "#front/greeting/random"',
+    it('should translate key of `#front:greeting`',
     /*#__PURE__*/
     _asyncToGenerator(
     /*#__PURE__*/
@@ -286,8 +299,8 @@ describe('i18n w/await', function () {
             case 2:
               t = _context8.sent;
               (0, _chai.expect)(t).to.be.a('function');
-              value = t('#front.greeting.random');
-              (0, _chai.expect)(value).to.equal(undefined);
+              value = t('#front:greeting', /:/);
+              (0, _chai.expect)(value).to.equal('Hello World!');
 
             case 6:
             case "end":
@@ -295,6 +308,58 @@ describe('i18n w/await', function () {
           }
         }
       }, _callee8);
+    })));
+    it('should translate key of `#front|greeting`',
+    /*#__PURE__*/
+    _asyncToGenerator(
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee9() {
+      var t, value;
+      return regeneratorRuntime.wrap(function _callee9$(_context9) {
+        while (1) {
+          switch (_context9.prev = _context9.next) {
+            case 0:
+              _context9.next = 2;
+              return (0, _lib.i18n)();
+
+            case 2:
+              t = _context9.sent;
+              (0, _chai.expect)(t).to.be.a('function');
+              value = t('#front|greeting', '|');
+              (0, _chai.expect)(value).to.equal('Hello World!');
+
+            case 6:
+            case "end":
+              return _context9.stop();
+          }
+        }
+      }, _callee9);
+    })));
+    it('should translate key of `#front/greeting/random`',
+    /*#__PURE__*/
+    _asyncToGenerator(
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee10() {
+      var t, value;
+      return regeneratorRuntime.wrap(function _callee10$(_context10) {
+        while (1) {
+          switch (_context10.prev = _context10.next) {
+            case 0:
+              _context10.next = 2;
+              return (0, _lib.i18n)();
+
+            case 2:
+              t = _context10.sent;
+              (0, _chai.expect)(t).to.be.a('function');
+              value = t('#front.greeting.random');
+              (0, _chai.expect)(value).to.equal(undefined);
+
+            case 6:
+            case "end":
+              return _context10.stop();
+          }
+        }
+      }, _callee10);
     })));
   });
   describe('for status: 404 Not Found', function () {
@@ -314,35 +379,35 @@ describe('i18n w/await', function () {
     /*#__PURE__*/
     _asyncToGenerator(
     /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee9() {
+    regeneratorRuntime.mark(function _callee11() {
       var t;
-      return regeneratorRuntime.wrap(function _callee9$(_context9) {
+      return regeneratorRuntime.wrap(function _callee11$(_context11) {
         while (1) {
-          switch (_context9.prev = _context9.next) {
+          switch (_context11.prev = _context11.next) {
             case 0:
-              _context9.prev = 0;
-              _context9.next = 3;
+              _context11.prev = 0;
+              _context11.next = 3;
               return (0, _lib.i18n)();
 
             case 3:
-              t = _context9.sent;
-              _context9.next = 9;
+              t = _context11.sent;
+              _context11.next = 9;
               break;
 
             case 6:
-              _context9.prev = 6;
-              _context9.t0 = _context9["catch"](0);
-              (0, _chai.expect)(_context9.t0).to.equal('Not Found');
+              _context11.prev = 6;
+              _context11.t0 = _context11["catch"](0);
+              (0, _chai.expect)(_context11.t0).to.equal('Not Found');
 
             case 9:
               (0, _chai.expect)(t).to.be.an('undefined');
 
             case 10:
             case "end":
-              return _context9.stop();
+              return _context11.stop();
           }
         }
-      }, _callee9, null, [[0, 6]]);
+      }, _callee11, null, [[0, 6]]);
     })));
   });
 });
