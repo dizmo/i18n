@@ -52,5 +52,5 @@
     "prepack": "node ./cli/run-prepack.js",
     "test": "node ./cli/run-test.js"
   },
-  "version": "2.0.0"
+  "version": "2.0.1"
 }
