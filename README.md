@@ -10,8 +10,7 @@ The default location to fetch JSON files from is:
 
 ```javascript
 url: (language) => {
-    return `/bundles/${bundle.identifier}` +
-           `/assets/locales/translation.${language}.json`;
+    return `assets/locales/translation.${language}.json`;
 }
 ```
 
@@ -74,7 +73,7 @@ i18n((error, t) => {
     }
 }, {
     url: (language) => {
-        return `http://domain.tld/translation.${language}.json`,
+        return `https://domain.tld/translation.${language}.json`,
     },
     language: () => {
         return 'en';
@@ -86,7 +85,7 @@ i18n((error, t) => {
 try {
     const t = await i18n(null, {
         url: (language) => {
-            return `http://domain.tld/translation.${language}.json`,
+            return `https://domain.tld/translation.${language}.json`,
         },
         language: () => {
             return 'en';
@@ -180,4 +179,4 @@ npm publish --access=public
 
 ## Copyright
 
- © 2019 [dizmo AG](https://www.dizmo.com/), Switzerland
+ © [dizmo AG](https://www.dizmo.com/), Switzerland

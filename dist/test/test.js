@@ -311,7 +311,7 @@ describe('i18n w/await', function () {
             case 2:
               t = _context10.sent;
               (0, _chai.expect)(t).to.be.a('function');
-              value = t('#front.greeting.random');
+              value = t('#front/greeting/random');
               (0, _chai.expect)(value).to.equal(undefined);
 
             case 6:
@@ -320,6 +320,28 @@ describe('i18n w/await', function () {
           }
         }
       }, _callee10);
+    })));
+    it('should translate key of `#front.greeting.random`', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee11() {
+      var t, value;
+      return regeneratorRuntime.wrap(function _callee11$(_context11) {
+        while (1) {
+          switch (_context11.prev = _context11.next) {
+            case 0:
+              _context11.next = 2;
+              return (0, _lib.i18n)();
+
+            case 2:
+              t = _context11.sent;
+              (0, _chai.expect)(t).to.be.a('function');
+              value = t('#front.greeting.random');
+              (0, _chai.expect)(value).to.equal(undefined);
+
+            case 6:
+            case "end":
+              return _context11.stop();
+          }
+        }
+      }, _callee11);
     })));
   });
   describe('for status: 404 Not Found', function () {
@@ -335,35 +357,35 @@ describe('i18n w/await', function () {
     after(function () {
       global.XMLHttpRequest.restore();
     });
-    it('should await error', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee11() {
+    it('should await error', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee12() {
       var t;
-      return regeneratorRuntime.wrap(function _callee11$(_context11) {
+      return regeneratorRuntime.wrap(function _callee12$(_context12) {
         while (1) {
-          switch (_context11.prev = _context11.next) {
+          switch (_context12.prev = _context12.next) {
             case 0:
-              _context11.prev = 0;
-              _context11.next = 3;
+              _context12.prev = 0;
+              _context12.next = 3;
               return (0, _lib.i18n)();
 
             case 3:
-              t = _context11.sent;
-              _context11.next = 9;
+              t = _context12.sent;
+              _context12.next = 9;
               break;
 
             case 6:
-              _context11.prev = 6;
-              _context11.t0 = _context11["catch"](0);
-              (0, _chai.expect)(_context11.t0).to.equal('Not Found');
+              _context12.prev = 6;
+              _context12.t0 = _context12["catch"](0);
+              (0, _chai.expect)(_context12.t0).to.equal('Not Found');
 
             case 9:
               (0, _chai.expect)(t).to.be.an('undefined');
 
             case 10:
             case "end":
-              return _context11.stop();
+              return _context12.stop();
           }
         }
-      }, _callee11, null, [[0, 6]]);
+      }, _callee12, null, [[0, 6]]);
     })));
   });
 });

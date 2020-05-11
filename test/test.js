@@ -135,6 +135,12 @@ describe('i18n w/await', () => {
         it('should translate key of `#front/greeting/random`', async () => {
             const t = await i18n();
             expect(t).to.be.a('function');
+            const value = t('#front/greeting/random');
+            expect(value).to.equal(undefined);
+        });
+        it('should translate key of `#front.greeting.random`', async () => {
+            const t = await i18n();
+            expect(t).to.be.a('function');
             const value = t('#front.greeting.random');
             expect(value).to.equal(undefined);
         });
