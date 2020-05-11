@@ -88,11 +88,7 @@ describe('i18n w/await', function () {
     afterEach(function () {
       global.XMLHttpRequest.restore();
     });
-    it('should await translator',
-    /*#__PURE__*/
-    _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee() {
+    it('should await translator', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
       var t;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
@@ -112,11 +108,7 @@ describe('i18n w/await', function () {
         }
       }, _callee);
     })));
-    it('should translate key of `null`',
-    /*#__PURE__*/
-    _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee2() {
+    it('should translate key of `null`', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
       var t, value;
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
@@ -138,11 +130,7 @@ describe('i18n w/await', function () {
         }
       }, _callee2);
     })));
-    it('should translate key of `undefined`',
-    /*#__PURE__*/
-    _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee3() {
+    it('should translate key of `undefined`', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
       var t, value;
       return regeneratorRuntime.wrap(function _callee3$(_context3) {
         while (1) {
@@ -173,11 +161,7 @@ describe('i18n w/await', function () {
         }
       }, _callee3);
     })));
-    it('should translate key of `(empty)`',
-    /*#__PURE__*/
-    _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee4() {
+    it('should translate key of `(empty)`', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
       var t, value;
       return regeneratorRuntime.wrap(function _callee4$(_context4) {
         while (1) {
@@ -203,11 +187,7 @@ describe('i18n w/await', function () {
         }
       }, _callee4);
     })));
-    it('should translate key of `#front`',
-    /*#__PURE__*/
-    _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee5() {
+    it('should translate key of `#front`', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
       var t, value;
       return regeneratorRuntime.wrap(function _callee5$(_context5) {
         while (1) {
@@ -231,11 +211,7 @@ describe('i18n w/await', function () {
         }
       }, _callee5);
     })));
-    it('should translate key of `#front/greeting`',
-    /*#__PURE__*/
-    _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee6() {
+    it('should translate key of `#front/greeting`', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
       var t, value;
       return regeneratorRuntime.wrap(function _callee6$(_context6) {
         while (1) {
@@ -257,11 +233,7 @@ describe('i18n w/await', function () {
         }
       }, _callee6);
     })));
-    it('should translate key of `#front.greeting`',
-    /*#__PURE__*/
-    _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee7() {
+    it('should translate key of `#front.greeting`', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
       var t, value;
       return regeneratorRuntime.wrap(function _callee7$(_context7) {
         while (1) {
@@ -283,11 +255,7 @@ describe('i18n w/await', function () {
         }
       }, _callee7);
     })));
-    it('should translate key of `#front:greeting`',
-    /*#__PURE__*/
-    _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee8() {
+    it('should translate key of `#front:greeting`', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8() {
       var t, value;
       return regeneratorRuntime.wrap(function _callee8$(_context8) {
         while (1) {
@@ -309,11 +277,7 @@ describe('i18n w/await', function () {
         }
       }, _callee8);
     })));
-    it('should translate key of `#front|greeting`',
-    /*#__PURE__*/
-    _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee9() {
+    it('should translate key of `#front|greeting`', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9() {
       var t, value;
       return regeneratorRuntime.wrap(function _callee9$(_context9) {
         while (1) {
@@ -335,11 +299,7 @@ describe('i18n w/await', function () {
         }
       }, _callee9);
     })));
-    it('should translate key of `#front/greeting/random`',
-    /*#__PURE__*/
-    _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee10() {
+    it('should translate key of `#front/greeting/random`', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee10() {
       var t, value;
       return regeneratorRuntime.wrap(function _callee10$(_context10) {
         while (1) {
@@ -375,11 +335,7 @@ describe('i18n w/await', function () {
     after(function () {
       global.XMLHttpRequest.restore();
     });
-    it('should await error',
-    /*#__PURE__*/
-    _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee11() {
+    it('should await error', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee11() {
       var t;
       return regeneratorRuntime.wrap(function _callee11$(_context11) {
         while (1) {
