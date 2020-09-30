@@ -1,3 +1,6 @@
+const plugins = [
+    "@babel/plugin-transform-runtime"
+];
 const presets = [
     "@babel/env"
 ];
@@ -7,6 +10,6 @@ const ignore = [
 module.exports = function (api) {
     api.cache(true);
     return {
-        presets, ignore
+        plugins, presets, ignore
     };
 };

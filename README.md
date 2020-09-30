@@ -4,7 +4,7 @@
 
 # @dizmo/i18n
 
-A module, which provides a function `i18n` to acquire the translator function `t`, which can be used to translate values from JSON files, which are fetched from a URL and are chosen based on the (current) language. By default these are set to work within the context of a [dizmo].
+A module, which provides the `i18n` function to get the `translator` function, which can be used to translate `key` words from JSON files. For each language one wants to support, there should be a JSON file, which is then fetched from a URL &ndash; based on the (current) language. By default the URL and language are set to work within the context of a [dizmo].
 
 The default location to fetch JSON files from is:
 
@@ -22,7 +22,7 @@ language: () => {
 }
 ```
 
-The translator function `t` takes a `key` string (plus an optional `separator`) and returns a *translated* value by performing a *deep* lookup from the JSON file for the current language. The separator can be string or a regular expression (with a default of `/\/|\./`, i.e. a forward slash *or* a period).
+The `translator` function takes a `key` string (plus an optional `separator`) and returns a *translated* value by performing a *deep* lookup from within the JSON file (for the current language). The separator can be a string or a regular expression (with a default of `/\/|\./`, i.e. a forward slash *or* a period).
 
 [dizmo]: https://www.dizmo.com/developer/
 
@@ -43,34 +43,32 @@ const i18n = require('@dizmo/i18n');
 ### Examples
 
 ```javascript
-i18n((error, t) => {
-    if (!error) {
-        const value_a = t('my/example/key/a');
-        const value_b = t('my.example.key.b');
-        const value_c = t('my:example:key:c', /:/);
-        const value_d = t('my|example|key|d', '|');
-    } else {
-        console.error(error);
+i18n((error, translate) => {
+    if (error) {
+        return console.error(error);
     }
+    const value_a = translate('my/example/key/a');
+    const value_b = translate('my.example.key.b');
+    const value_c = translate('my:example:key:c', /:/);
+    const value_d = translate('my|example|key|d', '|');
 });
 ```
 
 ```javascript
 try {
-    const t = await i18n();
-    const value_a = t('my/example/key/a');
+    const translate = await i18n();
+    const value = translate('my/example/key/a');
 } catch (error) {
     console.error(error);
 }
 ```
 
 ```javascript
-i18n((error, t) => {
-    if (!error) {
-        const value_a = t('my/example/key/a');
-    } else {
-        console.error(error);
+i18n((error, translate) => {
+    if (error) {
+        return console.error(error);
     }
+    const value = translate('my/example/key/a');
 }, {
     url: (language) => {
         return `https://domain.tld/translation.${language}.json`,
@@ -83,7 +81,7 @@ i18n((error, t) => {
 
 ```javascript
 try {
-    const t = await i18n(null, {
+    const translate = await i18n(null, {
         url: (language) => {
             return `https://domain.tld/translation.${language}.json`,
         },
@@ -91,7 +89,7 @@ try {
             return 'en';
         }
     });
-    const value_a = t('my/example/key/a');
+    const value = translate('my/example/key/a');
 } catch (error) {
     console.error(error);
 }
@@ -165,7 +163,13 @@ npm run cover
 npm run -- cover --no-lint --no-clean --no-build
 ```
 
-## Publish
+## Documentation
+
+```sh
+npm run docs
+```
+
+## Publication
 
 ```sh
 npm publish
