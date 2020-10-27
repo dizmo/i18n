@@ -1,5 +1,5 @@
 [![NPM version](https://badge.fury.io/js/%40dizmo%2Fi18n.svg)](https://npmjs.org/package/@dizmo/i18n)
-[![Build Status](https://travis-ci.org/dizmo/i18n.svg?branch=master)](https://travis-ci.org/dizmo/i18n)
+[![Build Status](https://travis-ci.com/dizmo/i18n.svg?branch=master)](https://travis-ci.org/dizmo/i18n)
 [![Coverage Status](https://coveralls.io/repos/github/dizmo/i18n/badge.svg?branch=master)](https://coveralls.io/github/dizmo/i18n?branch=master)
 
 # @dizmo/i18n
